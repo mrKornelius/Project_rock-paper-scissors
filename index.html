@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <script>
-        console.log("hello"); 
-        let gameItems = ['rock', 'paper', 'scissors']
+        
+        function playerPlay() {
+            return prompt('Enter rock, paper or scissors:', 'rock');
+        }
+        
 
         function computerPlay() {
+            let gameItems = ['rock', 'paper', 'scissors']
             return gameItems[Math.floor(Math.random() * 3)];
         }
 
@@ -35,7 +39,18 @@
             }
         }
 
+        function game() {
+            let gameRound = 1;
+            let playerScore = 0;
+            let computerScore = 0;
 
+            while (gameRound++ <= 5) {
+                let playerSelection = playerPlay();
+                let computerSelection = computerPlay();
+                console.log(playRound(playerSelection, computerSelection));
+            }
+
+        }
 
     </script>
 </head>
