@@ -5,8 +5,46 @@
     <title>Document</title>
     <script>
         console.log("hello"); 
+        let gameItems = ['rock', 'paper', 'scissors']
 
+        function computerPlay() {
+            return gameItems[Math.floor(Math.random() * 3)];
+        }
 
+        function playRound(playerSelection, computerSelection) {
+            playerSelection = playerSelection.toLowerCase();
+            computerSelection = computerSelection.toLowerCase();
+
+            console.log(playerSelection);
+            console.log(computerSelection);
+
+            if (playerSelection == 'rock') {
+                if (computerSelection == 'rock')
+                    return 'TIE';
+                else if (computerSelection == 'paper')
+                    return 'LOSE';
+                else // scissors
+                    return 'WIN';
+            }
+            else if (playerSelection == 'paper'){
+                if (computerSelection == 'rock')
+                    return 'WIN';
+                else if (computerSelection == 'paper')
+                    return 'TIE';
+                else // scissors
+                    return 'LOSE';
+            }
+            else { // scissors
+                if (computerSelection == 'rock')
+                    return 'LOSE';
+                else if (computerSelection == 'paper')
+                    return 'WIN';
+                else // scissors
+                    return 'TIE';
+            }
+        }
+
+        playRound('hello', 'hello');
     </script>
 </head>
     <body>
