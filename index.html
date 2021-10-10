@@ -2,91 +2,26 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
-    <script>
-        
-        // Prompt the player for input and checks whether it's one of
-        // rock, paper or scissors, otherwise the player is prompted 
-        // again. Also make the input all lower case for easier comparison.
-        function playerPlay() {
-            let gameItems = ['rock', 'paper', 'scissors']
-            let input;
-            
-            do {
-                input = prompt('Enter rock, paper or scissors:', computerPlay());
-                input = (input != null) ? input.toLowerCase() : '';
-            }
-            while ( ! gameItems.includes(input));
-            
-            return input;
-        }
-
-        // Uses a random number to select one of rock, paper or scissors.
-        function computerPlay() {
-            let gameItems = ['rock', 'paper', 'scissors']
-            return gameItems[Math.floor(Math.random() * 3)];
-        }
-
-        // This function takes two arguments (rock, paper or scissors)
-        // and compare them to decide the winner.
-        // Returns 1 if the first argument beats the second argument.
-        // Returns -1 if the second argument beats the first argument.
-        // Returns 0 if the first argument is the same as the second argument.
-        function playRound(playerSelection, computerSelection) {          
-            switch (playerSelection) {
-                case computerSelection:
-                    return 0;
-                case 'rock':
-                    return (computerSelection == 'scissors') ? 1 : -1;
-                case 'paper':
-                    return (computerSelection == 'rock') ? 1 : -1;
-                case 'scissors':
-                    return (computerSelection == 'paper') ? 1 : -1;
-            }
-        }
-
-        // The main game loop. Runs the playRound 5 times and keep track of the 
-        // scores to decide the winner.
-        function game() {
-            let gameRound = 0;
-            let playerScore = 0;
-            let computerScore = 0;
-
-            while (gameRound++ < 5) {
-                let playerSelection = playerPlay();
-                let computerSelection = computerPlay();
-
-                switch (playRound(playerSelection, computerSelection)) {
-                    case 1:
-                        console.log(`You win! ${playerSelection} beats ${computerSelection}.`);
-                        playerScore++;
-                        break;
-                    case -1:
-                        console.log(`You lose! ${playerSelection} loses to ${computerSelection}.`);
-                        computerScore++;
-                        break;
-                    case 0:
-                        console.log(`Tie! ${playerSelection} <==> ${computerSelection}.`);
-                        //gameRound--; // replay tied rounds?
-                }
-            }
-
-            console.log(`The score is Player: ${playerScore}, Computer: ${computerScore}.`);
-            if (playerScore > computerScore) {
-                console.log('Player wins!')
-            }
-            else if (playerScore < computerScore) {
-                console.log('Computer wins!');
-            }
-            else {
-                console.log('Tie!');
-            }
-
-        }
-        game();
-    </script>
 </head>
-    <body>
-        <h1>Open the console and play.</h1>
-    </body>
+<body>
+    <div class="heading">Rock - Paper - Scissors</div>
+    <div class="undertext">The winner is the first to 5 wins.</div>
+
+    <div class="buttons">
+        <button class="button" id="rock">&#x1FAA8;</button>
+        <button class="button" id="paper">&#x1F4C3;</button>
+        <button class="button" id="scissors">&#x2702;</button>
+    </div>
+    <div class="score">
+        Player <span class="playerScore">0</span> - <span class="computerScore">0</span> Computer
+        <div class="winner"></div>
+    </div>
+    <div class="resetgame"><span id="resetgame">Restart Game!</span></div>
+    <div class="results"></div>
+
+
+    <script src="script.js"></script>
+</body>
 </html>

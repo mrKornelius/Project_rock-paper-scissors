@@ -1,0 +1,60 @@
+body {
+    background-color: #333;
+    color: #777;
+}
+
+.heading {
+    font-size: 48px;
+}
+.heading, .undertext {
+    text-align: center;
+}
+
+.buttons {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.button {
+    font-family: 'emoji';
+    background-color: #ccc;
+    width: 120px;
+    height: 120px;
+    font-size: 52px;
+}
+
+.score {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 48px;
+}
+
+.playerScore {
+    color: green;
+}
+
+.computerScore {
+    color: red;
+}
+
+.results {
+    display: flex;
+    justify-content: center;
+    font-size: 32px;
+    margin-top: 15px;
+}
+
+.resetgame {
+    text-align: center;
+    display: none;
+}
+
+#resetgame {
+    text-decoration: none;
+    font-size: 22px;
+    color: #ccc;
+}
+
+#resetgame:hover {
+    color: #eee;
+}
